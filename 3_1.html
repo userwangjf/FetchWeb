@@ -1,0 +1,182 @@
+                            <h1>Python3 基础语法</h1>
+                                <h2>编码</h2>        
+
+                                <p>
+                                    默认情况下，Python 3 源码文件以 <b>UTF-8</b> 编码，所有字符串都是 unicode 字符串。
+                                    当然你也可以为源码文件指定不同的编码：
+                                </p>
+
+                                <pre># -*- coding: cp-1252 -*-
+</pre>
+                                <p>上述定义允许在源文件中使用 Windows-1252 字符集中的字符编码，对应适合语言为保加利亚语、白罗斯语、马其顿语、俄语、塞尔维亚语。</p>   
+
+                                <hr/>
+                                <h2>标识符</h2>
+
+
+
+                                <ul>
+                                    <li>第一个字符必须是字母表中字母或下划线 <span class="marked">_</span> 。</li>
+                                    <li>标识符的其他的部分由字母、数字和下划线组成。</li>
+                                    <li>标识符对大小写敏感。</li>
+                                </ul>
+                                <p>
+                                    在 Python 3 中，可以用中文作为变量名，非 ASCII 标识符也是允许的了。
+                                </p>
+                                <hr/>
+                                <h2>python保留字</h2>
+                                <p>
+
+                                    保留字即关键字，我们不能把它们用作任何标识符名称。Python 的标准库提供了一个 keyword 模块，可以输出当前版本的所有关键字：
+                                </p>
+                                <pre>&gt;&gt;&gt; import keyword
+&gt;&gt;&gt; keyword.kwlist
+['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+</pre>
+
+
+
+                                <hr/>
+                                <h2>注释</h2>
+                                <p>
+                                    Python中单行注释以 <b>#</b> 开头，实例如下：
+                                </p>
+                                <div class="example">
+                                    <h2 class="example">实例(Python 3.0+)</h2>
+                                    <div class="example_code">
+                                        <div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+
+                                            </span><span class="hl-comment"># 第一个注释</span><span class="hl-code">
+                                            </span><span class="hl-identifier">print</span><span class="hl-code">
+                                            </span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Hello,
+                                                Python!</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 第二个注释</span></div>
+                                    </div>
+                                </div>
+                                <p>执行以上代码，输出结果为：</p>
+                                <pre>Hello, Python!
+</pre>
+                                <p>多行注释可以用多个 <span class="marked">#</span> 号，还有 <span class="marked">'''</span> 和 <span class="marked">"""</span>：</p> 
+
+                                <div class="example">
+                                    <h2 class="example">实例(Python 3.0+)</h2>
+                                    <div class="example_code">
+                                        <div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+
+                                            </span><span class="hl-comment"># 第一个注释</span><span class="hl-code">
+                                            </span><span class="hl-comment"># 第二个注释</span><span class="hl-code">
+
+                                            </span><span class="hl-quotes">'''</span><span class="hl-string">
+                                                第三注释
+                                                第四注释
+                                            </span><span class="hl-quotes">'''</span><span class="hl-code">
+
+                                            </span><span class="hl-quotes">"""</span><span class="hl-string">
+                                                第五注释
+                                                第六注释
+                                            </span><span class="hl-quotes">"""</span><span class="hl-code">
+                                            </span><span class="hl-identifier">print</span><span class="hl-code">
+                                            </span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Hello,
+                                                Python!</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
+                                    </div>
+                                </div>
+                                <p>执行以上代码，输出结果为：</p>
+                                <pre>Hello, Python!
+</pre>
+                                <hr/>
+                                <h2>行与缩进
+                                </h2>
+                                <p>
+                                    python最具特色的就是使用缩进来表示代码块，不需要使用大括号 <span class="marked">{}</span> 。</p>
+                                <p>缩进的空格数是可变的，但是同一个代码块的语句必须包含相同的缩进空格数。实例如下：
+                                </p>
+                                <div class="example">
+                                    <h2 class="example">实例(Python 3.0+)</h2>
+                                    <div class="example_code">
+                                        <div class="hl-main"><span class="hl-reserved">if</span><span class="hl-code">
+                                            </span><span class="hl-reserved">True</span><span class="hl-code">:
+                                            </span><span class="hl-identifier">print</span><span class="hl-code">
+                                            </span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">True</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">
+                                            </span><span class="hl-reserved">else</span><span class="hl-code">:
+                                            </span><span class="hl-identifier">print</span><span class="hl-code">
+                                            </span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">False</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span></div>
+                                    </div>
+                                </div>
+                                <p>以下代码最后一行语句缩进数的空格数不一致，会导致运行错误：</p>
+                                <pre>if True:
+    print ("Answer")
+    print ("True")
+else:
+    print ("Answer")
+  print ("False")    # 缩进不一致，会导致运行错误
+</pre>
+                                <p>以上程序由于缩进不一致，执行后会出现类似以下错误：</p>
+                                <pre> File "test.py", line 6
+    print ("False")    # 缩进不一致，会导致运行错误
+                                      ^
+IndentationError: unindent does not match any outer indentation level
+</pre>
+                                <hr/>
+                                <h2>多行语句</h2>
+                                <p>Python 通常是一行写完一条语句，但如果语句很长，我们可以使用反斜杠(\)来实现多行语句，例如：</p>
+                                <pre>total = item_one + \
+        item_two + \
+        item_three
+</pre>
+                                <p>在 [], {}, 或 () 中的多行语句，不需要使用反斜杠(\)，例如：</p>
+                                <pre>total = ['item_one', 'item_two', 'item_three',
+        'item_four', 'item_five']
+</pre>
+
+                                <hr/>
+                                <h2>数字(Number)类型</h2>
+                                <p>python中数字有四种类型：整数、布尔型、浮点数和复数。</p>
+                                <ul>
+                                    <li><strong>int</strong> (整数), 如 1, 只有一种整数类型 int，表示为长整型，没有 python2 中的 Long。</li>
+                                    <li><strong>bool</strong> (布尔), 如 True。</li>
+                                    <li><strong>float</strong> (浮点数), 如 1.23、3E-2</li>
+                                    <li><strong>complex</strong> (复数), 如 1 + 2j、 1.1 + 2.2j</li>
+                                </ul>
+                                <hr/>
+                                <h2>字符串(String)</h2>
+                                <ul>
+                                    <li><span style="color: #000000;">python中单引号和双引号使用完全相同。</span></li>
+                                    <li><span style="color: #000000;">使用三引号('''或""")可以指定一个多行字符串。</span></li>
+                                    <li><span style="color: #000000;">转义符 '\'</span></li>
+                                    <li>反斜杠可以用来转义，使用r可以让反斜杠不发生转义。。 如 r"this is a line with \n" 则\n会显示，并不是换行。</li>
+
+                                    <li>按字面意义级联字符串，如"this " "is " "string"会被自动转换为this is string。</li>
+                                    <li>字符串可以用 + 运算符连接在一起，用 * 运算符重复。</li>
+                                    <li>Python 中的字符串有两种索引方式，从左往右以 0 开始，从右往左以 -1 开始。</li>
+                                    <li>Python中的字符串不能改变。</li>
+                                    <li>Python 没有单独的字符类型，一个字符就是长度为 1 的字符串。</li>
+                                    <li>字符串的截取的语法格式如下：<span class="marked">变量[头下标:尾下标:步长]</span></li>
+                                </ul>
+
+                                <pre>word = '字符串'
+sentence = "这是一个句子。"
+paragraph = """这是一个段落，
+可以由多行组成"""
+</pre>
+                                <div class="example">
+                                    <h2 class="example">实例(Python 3.0+)</h2>
+                                    <div class="example_code">
+                                        <div class="hl-main"><span class="hl-comment">#!/usr/bin/python3</span><span class="hl-code">
+
+                                            </span><span class="hl-identifier">str</span><span class="hl-code">=</span><span class="hl-quotes">'</span><span class="hl-string">Runoob</span><span class="hl-quotes">'</span><span class="hl-code">
+
+                                            </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出字符串</span><span class="hl-code">
+                                            </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-code">:-</span><span class="hl-number">1</span><span class="hl-brackets">]</span><span 
+class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment">#
+                                                输出第一个到倒数第二个的所有字符</span><span class="hl-code">
+                                            </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment">#
+                                                输出字符串第一个字符</span><span class="hl-code">
+                                            </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">[</span><span class="hl-number">2</span><span class="hl-code">:</span><span class="hl-number">5</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment">#
+                                                输出从第三个开始到第五个的字符</span><span class="hl-code">
+                                            </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">[</span><span class="hl-number">2</span><span class="hl-code">:</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出从第三个开始后的所有字符</span><span class="hl-code">
+                                            </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-code"> * </span><span class="hl-number">2</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 输出字符串两次
+</span><span class="hl-code">
+                                            </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-code"> + </span><span class="hl-quotes">'</span><span class="hl-string">你好</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-comment"># 连接字符串</span><span class="hl-code">
+
+                                            </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">------------------------------</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">
+
+                                            </span><span class="hl-identifier">print</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">hello</span><span class="hl-special">\n</span><span class="hl-string">runoob</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">
