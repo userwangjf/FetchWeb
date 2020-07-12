@@ -12,7 +12,7 @@ class FetchWeb(Crawler):
     def __init__(self):
         pass
 
-    def GetAllMenu(self,url):
+    def getAllMenu(self,url):
         try:
             soup = BeautifulSoup(super().Request_Net(url).content, "html5lib")
             #menu_tag = soup.find(class_="design")
@@ -24,17 +24,16 @@ class FetchWeb(Crawler):
         except Exception as e:
             print(e)
 
-    def GetAllBody(self,url):
+    def getAllBody(self,url):
 
-        soup = BeautifulSoup(requests.get(url).content,"html5lib")
-        
-        soup = BeautifulSoup(super().Request_Net(url).content, "html5lib")
+        soup = BeautifulSoup(fetchHtml(url),"html5lib")
+
         body_class = soup.find_all(class_="article-body")
         body = str(body_class[0])
-        print(body.replace('\r\n','--'))
+        #print(str(body).replace('\r\n','--'))
 
         with open("3.body","w",encoding="utf-8") as f:
-            f.write(str(body).replace("\\r","--"))
+            f.write(body.replace("\n","--"))
 
         with open("3.md","w",encoding="utf-8") as f:
             md = Tomd(body).markdown
@@ -49,8 +48,10 @@ class FetchWeb(Crawler):
             full = super().Parse_URL(url).get('url_domain', 'invalid url_domain of key') + href
         return full
         
+
+
 if __name__ == "__main__":
     fetchWeb = FetchWeb()
-    #fetchWeb.GetAllMenu("https://www.runoob.com/python3/python3-basic-syntax.html")
-    fetchWeb.GetAllBody("https://www.runoob.com/python/python-basic-syntax.html")
+    #fetchWeb.getAllMenu("https://www.runoob.com/python3/python3-basic-syntax.html")
+    fetchWeb.getAllBody("https://www.runoob.com/python/python-basic-syntax.html")
 

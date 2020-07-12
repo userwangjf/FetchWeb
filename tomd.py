@@ -83,7 +83,7 @@ class Tomd:
 
         self._markdown = pq(html).text().replace(split_str, '\n')
 
-        print(self._markdown)
+        #print(self._markdown)
         return self._markdown
 
     @property
